@@ -1,0 +1,1282 @@
+[
+  {
+    "question": "-4 + (-9 × 5)",
+    "options": {
+      "A": "-49",
+      "B": "49",
+      "C": "70",
+      "D": "-70"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "15 - (-3) × 4",
+    "options": {
+      "A": "27",
+      "B": "-27",
+      "C": "48",
+      "D": "-48"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-24) ÷ 6 + 10",
+    "options": {
+      "A": "-14",
+      "B": "14",
+      "C": "6",
+      "D": "-6"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "7 × (-5) - 8",
+    "options": {
+      "A": "27",
+      "B": "-27",
+      "C": "43",
+      "D": "-43"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "(-36) ÷ (-9) - 2",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "2",
+      "D": "-2"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "12 + (-15) × 2",
+    "options": {
+      "A": "42",
+      "B": "-42",
+      "C": "18",
+      "D": "-18"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "(-5) × (-6) ÷ 3",
+    "options": {
+      "A": "10",
+      "B": "-10",
+      "C": "30",
+      "D": "-30"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "18 ÷ (-2) + 15",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "24",
+      "D": "-24"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-7) - (-14) × 2",
+    "options": {
+      "A": "21",
+      "B": "-21",
+      "C": "35",
+      "D": "-35"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "25 ÷ (-5) × 3",
+    "options": {
+      "A": "15",
+      "B": "-15",
+      "C": "5",
+      "D": "-5"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-8) × 4 + 50",
+    "options": {
+      "A": "18",
+      "B": "-18",
+      "C": "82",
+      "D": "-82"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "42 ÷ (-7) - 3",
+    "options": {
+      "A": "-9",
+      "B": "9",
+      "C": "-3",
+      "D": "3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-9) + (-6) × 5",
+    "options": {
+      "A": "-39",
+      "B": "39",
+      "C": "-75",
+      "D": "75"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-60) ÷ 12 × 2",
+    "options": {
+      "A": "10",
+      "B": "-10",
+      "C": "5",
+      "D": "-5"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "14 - 3 × (-7)",
+    "options": {
+      "A": "35",
+      "B": "-35",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-5) × 8 ÷ (-10)",
+    "options": {
+      "A": "4",
+      "B": "-4",
+      "C": "40",
+      "D": "-40"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-27) ÷ (-3) + 4",
+    "options": {
+      "A": "13",
+      "B": "-13",
+      "C": "5",
+      "D": "-5"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "11 + (-4) × (-6)",
+    "options": {
+      "A": "35",
+      "B": "-35",
+      "C": "18",
+      "D": "-18"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-48) ÷ 6 - 9",
+    "options": {
+      "A": "-17",
+      "B": "17",
+      "C": "-1",
+      "D": "1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-3) × (-5) × (-2)",
+    "options": {
+      "A": "30",
+      "B": "-30",
+      "C": "10",
+      "D": "-10"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "20 ÷ (-4) + 12",
+    "options": {
+      "A": "7",
+      "B": "-7",
+      "C": "17",
+      "D": "-17"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-7) + (-8) × 3",
+    "options": {
+      "A": "-31",
+      "B": "31",
+      "C": "-45",
+      "D": "45"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-54) ÷ (-9) - 7",
+    "options": {
+      "A": "-1",
+      "B": "1",
+      "C": "-13",
+      "D": "13"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "16 - (-4) × 5",
+    "options": {
+      "A": "36",
+      "B": "-36",
+      "C": "60",
+      "D": "-60"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-6) × 5 ÷ (-2)",
+    "options": {
+      "A": "15",
+      "B": "-15",
+      "C": "30",
+      "D": "-30"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-32) ÷ 8 + 10",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "14",
+      "D": "-14"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-9) - (-12) × 3",
+    "options": {
+      "A": "27",
+      "B": "-27",
+      "C": "45",
+      "D": "-45"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "35 ÷ (-7) × 2",
+    "options": {
+      "A": "10",
+      "B": "-10",
+      "C": "5",
+      "D": "-5"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-5) × 6 + 40",
+    "options": {
+      "A": "10",
+      "B": "-10",
+      "C": "70",
+      "D": "-70"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-63) ÷ 9 - 4",
+    "options": {
+      "A": "-11",
+      "B": "11",
+      "C": "-3",
+      "D": "3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-8) + (-7) × 4",
+    "options": {
+      "A": "-36",
+      "B": "36",
+      "C": "-20",
+      "D": "20"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-72) ÷ (-8) × 2",
+    "options": {
+      "A": "18",
+      "B": "-18",
+      "C": "9",
+      "D": "-9"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "19 - 5 × (-6)",
+    "options": {
+      "A": "49",
+      "B": "-49",
+      "C": "84",
+      "D": "-84"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-4) × 9 ÷ (-6)",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "36",
+      "D": "-36"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-45) ÷ (-5) + 7",
+    "options": {
+      "A": "16",
+      "B": "-16",
+      "C": "2",
+      "D": "-2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "13 + (-5) × (-4)",
+    "options": {
+      "A": "33",
+      "B": "-33",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-56) ÷ 7 - 8",
+    "options": {
+      "A": "-16",
+      "B": "16",
+      "C": "0",
+      "D": "1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-2) × (-6) × (-3)",
+    "options": {
+      "A": "36",
+      "B": "-36",
+      "C": "12",
+      "D": "-12"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "30 ÷ (-5) + 15",
+    "options": {
+      "A": "9",
+      "B": "-9",
+      "C": "21",
+      "D": "-21"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-6) + (-9) × 2",
+    "options": {
+      "A": "-24",
+      "B": "24",
+      "C": "-12",
+      "D": "12"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-81) ÷ (-9) - 6",
+    "options": {
+      "A": "3",
+      "B": "-3",
+      "C": "15",
+      "D": "-15"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "22 - (-3) × 7",
+    "options": {
+      "A": "43",
+      "B": "-43",
+      "C": "19",
+      "D": "-19"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-7) × 4 ÷ (-2)",
+    "options": {
+      "A": "14",
+      "B": "-14",
+      "C": "28",
+      "D": "-28"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-64) ÷ 8 + 12",
+    "options": {
+      "A": "4",
+      "B": "-4",
+      "C": "20",
+      "D": "-20"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-11) - (-15) × 2",
+    "options": {
+      "A": "19",
+      "B": "-19",
+      "C": "41",
+      "D": "-41"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "49 ÷ (-7) × 3",
+    "options": {
+      "A": "21",
+      "B": "-21",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-3) × 8 + 30",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "54",
+      "D": "-54"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-42) ÷ 6 - 5",
+    "options": {
+      "A": "-12",
+      "B": "12",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-10) + (-6) × 3",
+    "options": {
+      "A": "-28",
+      "B": "28",
+      "C": "-8",
+      "D": "8"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-90) ÷ (-10) × 2",
+    "options": {
+      "A": "18",
+      "B": "-18",
+      "C": "9",
+      "D": "-9"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "25 - 4 × (-8)",
+    "options": {
+      "A": "57",
+      "B": "-57",
+      "C": "17",
+      "D": "-17"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-5) × 7 ÷ (-5)",
+    "options": {
+      "A": "7",
+      "B": "-7",
+      "C": "35",
+      "D": "-35"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-36) ÷ (-6) + 9",
+    "options": {
+      "A": "15",
+      "B": "-15",
+      "C": "3",
+      "D": "-3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "17 + (-6) × (-3)",
+    "options": {
+      "A": "35",
+      "B": "-35",
+      "C": "5",
+      "D": "-5"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-70) ÷ 7 - 10",
+    "options": {
+      "A": "-20",
+      "B": "20",
+      "C": "0",
+      "D": "1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-4) × (-5) × (-2)",
+    "options": {
+      "A": "40",
+      "B": "-40",
+      "C": "10",
+      "D": "-10"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "40 ÷ (-8) + 12",
+    "options": {
+      "A": "7",
+      "B": "-7",
+      "C": "17",
+      "D": "-17"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-12) + (-5) × 4",
+    "options": {
+      "A": "-32",
+      "B": "32",
+      "C": "-8",
+      "D": "8"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-108) ÷ (-12) - 7",
+    "options": {
+      "A": "2",
+      "B": "-2",
+      "C": "16",
+      "D": "-16"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "31 - (-5) × 6",
+    "options": {
+      "A": "61",
+      "B": "-61",
+      "C": "1",
+      "D": "-1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-6) × 8 ÷ (-4)",
+    "options": {
+      "A": "12",
+      "B": "-12",
+      "C": "24",
+      "D": "-24"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-96) ÷ 12 + 10",
+    "options": {
+      "A": "2",
+      "B": "-2",
+      "C": "18",
+      "D": "-18"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-13) - (-18) × 2",
+    "options": {
+      "A": "23",
+      "B": "-23",
+      "C": "49",
+      "D": "-49"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "63 ÷ (-9) × 4",
+    "options": {
+      "A": "28",
+      "B": "-28",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-4) × 9 + 42",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "78",
+      "D": "-78"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-54) ÷ 6 - 7",
+    "options": {
+      "A": "-16",
+      "B": "16",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-15) + (-4) × 5",
+    "options": {
+      "A": "-35",
+      "B": "35",
+      "C": "-5",
+      "D": "5"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-120) ÷ (-10) × 3",
+    "options": {
+      "A": "36",
+      "B": "-36",
+      "C": "12",
+      "D": "-12"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "37 - 6 × (-7)",
+    "options": {
+      "A": "79",
+      "B": "-79",
+      "C": "23",
+      "D": "-23"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-8) × 5 ÷ (-10)",
+    "options": {
+      "A": "4",
+      "B": "-4",
+      "C": "40",
+      "D": "-40"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-48) ÷ (-6) + 12",
+    "options": {
+      "A": "20",
+      "B": "-20",
+      "C": "4",
+      "D": "-4"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "19 + (-7) × (-4)",
+    "options": {
+      "A": "47",
+      "B": "-47",
+      "C": "5",
+      "D": "-5"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-84) ÷ 7 - 8",
+    "options": {
+      "A": "-20",
+      "B": "20",
+      "C": "-4",
+      "D": "4"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-3) × (-7) × (-2)",
+    "options": {
+      "A": "42",
+      "B": "-42",
+      "C": "14",
+      "D": "-14"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "50 ÷ (-10) + 18",
+    "options": {
+      "A": "13",
+      "B": "-13",
+      "C": "23",
+      "D": "-23"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-18) + (-3) × 6",
+    "options": {
+      "A": "-36",
+      "B": "36",
+      "C": "0",
+      "D": "1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-135) ÷ (-15) - 7",
+    "options": {
+      "A": "2",
+      "B": "-2",
+      "C": "16",
+      "D": "-16"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "43 - (-4) × 9",
+    "options": {
+      "A": "79",
+      "B": "-79",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-9) × 6 ÷ (-3)",
+    "options": {
+      "A": "18",
+      "B": "-18",
+      "C": "27",
+      "D": "-27"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-112) ÷ 14 + 10",
+    "options": {
+      "A": "2",
+      "B": "-2",
+      "C": "18",
+      "D": "-18"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-17) - (-21) × 2",
+    "options": {
+      "A": "25",
+      "B": "-25",
+      "C": "59",
+      "D": "-59"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "77 ÷ (-11) × 5",
+    "options": {
+      "A": "35",
+      "B": "-35",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-5) × 10 + 60",
+    "options": {
+      "A": "10",
+      "B": "-10",
+      "C": "110",
+      "D": "-110"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-66) ÷ 6 - 9",
+    "options": {
+      "A": "-20",
+      "B": "20",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-21) + (-5) × 4",
+    "options": {
+      "A": "-41",
+      "B": "41",
+      "C": "-1",
+      "D": "1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-144) ÷ (-12) × 2",
+    "options": {
+      "A": "24",
+      "B": "-24",
+      "C": "12",
+      "D": "-12"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "49 - 5 × (-10)",
+    "options": {
+      "A": "99",
+      "B": "-99",
+      "C": "1",
+      "D": "-1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-7) × 8 ÷ (-4)",
+    "options": {
+      "A": "14",
+      "B": "-14",
+      "C": "28",
+      "D": "-28"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-60) ÷ (-5) + 15",
+    "options": {
+      "A": "27",
+      "B": "-27",
+      "C": "3",
+      "D": "-3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "23 + (-8) × (-5)",
+    "options": {
+      "A": "63",
+      "B": "-63",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-98) ÷ 7 - 12",
+    "options": {
+      "A": "-26",
+      "B": "26",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-6) × (-4) × (-2)",
+    "options": {
+      "A": "48",
+      "B": "-48",
+      "C": "12",
+      "D": "-12"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "60 ÷ (-12) + 20",
+    "options": {
+      "A": "15",
+      "B": "-15",
+      "C": "25",
+      "D": "-25"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-24) + (-3) × 8",
+    "options": {
+      "A": "-48",
+      "B": "48",
+      "C": "0",
+      "D": "1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-162) ÷ (-18) - 7",
+    "options": {
+      "A": "2",
+      "B": "-2",
+      "C": "16",
+      "D": "-16"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "55 - (-6) × 8",
+    "options": {
+      "A": "103",
+      "B": "-103",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-8) × 7 ÷ (-2)",
+    "options": {
+      "A": "28",
+      "B": "-28",
+      "C": "56",
+      "D": "-56"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-128) ÷ 16 + 12",
+    "options": {
+      "A": "4",
+      "B": "-4",
+      "C": "20",
+      "D": "-20"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-19) - (-24) × 2",
+    "options": {
+      "A": "29",
+      "B": "-29",
+      "C": "67",
+      "D": "-67"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "91 ÷ (-13) × 6",
+    "options": {
+      "A": "42",
+      "B": "-42",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-6) × 11 + 72",
+    "options": {
+      "A": "6",
+      "B": "-6",
+      "C": "138",
+      "D": "-138"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-78) ÷ 6 - 11",
+    "options": {
+      "A": "-24",
+      "B": "24",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-27) + (-4) × 6",
+    "options": {
+      "A": "-51",
+      "B": "51",
+      "C": "-3",
+      "D": "3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-180) ÷ (-15) × 3",
+    "options": {
+      "A": "36",
+      "B": "-36",
+      "C": "12",
+      "D": "-12"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "61 - 7 × (-9)",
+    "options": {
+      "A": "124",
+      "B": "-124",
+      "C": "2",
+      "D": "-2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-10) × 9 ÷ (-5)",
+    "options": {
+      "A": "18",
+      "B": "-18",
+      "C": "45",
+      "D": "-45"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-72) ÷ (-8) + 15",
+    "options": {
+      "A": "24",
+      "B": "-24",
+      "C": "6",
+      "D": "-6"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "29 + (-9) × (-6)",
+    "options": {
+      "A": "83",
+      "B": "-83",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-112) ÷ 7 - 14",
+    "options": {
+      "A": "-30",
+      "B": "30",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-5) × (-8) × (-2)",
+    "options": {
+      "A": "80",
+      "B": "-80",
+      "C": "20",
+      "D": "-20"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "70 ÷ (-14) + 25",
+    "options": {
+      "A": "20",
+      "B": "-20",
+      "C": "30",
+      "D": "-30"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-30) + (-2) × 9",
+    "options": {
+      "A": "-48",
+      "B": "48",
+      "C": "-12",
+      "D": "12"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-198) ÷ (-18) - 9",
+    "options": {
+      "A": "2",
+      "B": "-2",
+      "C": "20",
+      "D": "-20"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "67 - (-8) × 7",
+    "options": {
+      "A": "123",
+      "B": "-123",
+      "C": "3",
+      "D": "-3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-12) × 8 ÷ (-4)",
+    "options": {
+      "A": "24",
+      "B": "-24",
+      "C": "48",
+      "D": "-48"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-144) ÷ 12 + 15",
+    "options": {
+      "A": "3",
+      "B": "-3",
+      "C": "27",
+      "D": "-27"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-23) - (-27) × 3",
+    "options": {
+      "A": "58",
+      "B": "-58",
+      "C": "84",
+      "D": "-84"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "105 ÷ (-15) × 7",
+    "options": {
+      "A": "49",
+      "B": "-49",
+      "C": "7",
+      "D": "-7"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "(-7) × 12 + 96",
+    "options": {
+      "A": "12",
+      "B": "-12",
+      "C": "180",
+      "D": "-180"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-90) ÷ 5 - 16",
+    "options": {
+      "A": "-34",
+      "B": "34",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-33) + (-3) × 10",
+    "options": {
+      "A": "-63",
+      "B": "63",
+      "C": "-3",
+      "D": "3"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-216) ÷ (-18) × 4",
+    "options": {
+      "A": "48",
+      "B": "-48",
+      "C": "12",
+      "D": "-12"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "73 - 9 × (-8)",
+    "options": {
+      "A": "145",
+      "B": "-145",
+      "C": "1",
+      "D": "-1"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-14) × 10 ÷ (-5)",
+    "options": {
+      "A": "28",
+      "B": "-28",
+      "C": "70",
+      "D": "-70"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-84) ÷ (-7) + 18",
+    "options": {
+      "A": "30",
+      "B": "-30",
+      "C": "6",
+      "D": "-6"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "35 + (-11) × (-7)",
+    "options": {
+      "A": "112",
+      "B": "-112",
+      "C": "14",
+      "D": "-14"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-126) ÷ 9 - 12",
+    "options": {
+      "A": "-26",
+      "B": "26",
+      "C": "-2",
+      "D": "2"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "(-9) × (-5) × (-3)",
+    "options": {
+      "A": "135",
+      "B": "-135",
+      "C": "15",
+      "D": "-15"
+    },
+    "correct_answer": "B"
+  }
+]
