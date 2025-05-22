@@ -532,7 +532,7 @@
 
             shuffleArray(allQuestions);
             selectedQuestions = allQuestions.slice(0, Math.min(allQuestions.length, questionsPerGame));
-            if heg.selectedQuestions.length > 0) {
+            if (selectedQuestions.length > 0) {
                 displayQuestion();
             } else {
                 questionTextElement.textContent = "Not enough questions.";
