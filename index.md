@@ -1,3 +1,3 @@
 AI Camera Quiz
 
-- (ai_camera_pose_demo.html)[]
+- [AI Camera (Pose) Demo](ai_camera_pose_demo.html)
