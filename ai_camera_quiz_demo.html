@@ -25,6 +25,7 @@
             display: flex;
             width: 100%;
             height: 100%;
+            position: relative; /* For positioning webcam */
         }
         #quiz-container {
             flex: 3;
@@ -34,7 +35,24 @@
             justify-content: flex-start;
             padding: 20px;
             overflow-y: auto;
-            position: relative; /* For positioning footer */
+            position: relative;
+        }
+        #webcam-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: clamp(150px, 15vw, 225px);
+            height: clamp(150px, 15vw, 225px);
+            border: 2px solid #333;
+            border-radius: 8px;
+            z-index: 1000; /* Ensure webcam stays on top */
+        }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
         #home-container {
             display: flex;
@@ -47,12 +65,12 @@
             border-radius: 8px;
         }
         #home-container h1 {
-            font-size: clamp(2.5rem, 6vw, 3.75rem); /* Responsive font size, ~60px max */
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
             margin-bottom: 20px;
         }
         #start-button {
             padding: 12px 24px;
-            font-size: clamp(1.25rem, 3vw, 1.5625rem); /* Responsive font size, ~25px max */
+            font-size: clamp(1.25rem, 3vw, 1.5625rem);
             background: linear-gradient(45deg, #007bff, #00d4ff);
             color: white;
             border: none;
@@ -73,24 +91,9 @@
             box-shadow: -2px 0 5px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center content */
+            align-items: center;
             overflow-y: auto;
-            min-width: 250px; /* Ensure right pane doesn't collapse too much */
-        }
-        #webcam-container {
-            width: clamp(150px, 15vw, 225px); /* Reduced size for pose detection */
-            height: clamp(150px, 15vw, 225px);
-            border: 2px solid #333;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            position: relative; /* For canvas overlay */
-        }
-        #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            min-width: 250px;
         }
         #dashboard-container {
             flex: 1;
@@ -100,15 +103,16 @@
             background-color: #fff;
             border: 2px solid #333;
             border-radius: 8px;
-            padding: 30px 20px 5px; /* Further reduced bottom padding */
+            padding: 30px 20px 5px;
             margin-bottom: 20px;
-            width: clamp(600px, 80vw, 800px); /* Responsive width */
-            height: clamp(150px, 20vh, 180px); /* Taller question box */
+            margin-top: clamp(170px, 15vw, 245px); /* Offset for webcam container */
+            width: clamp(600px, 80vw, 800px);
+            height: clamp(150px, 20vh, 180px);
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5em; /* Spacing between elements */
+            gap: 1.5em;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1s ease, transform 1s ease;
@@ -118,51 +122,52 @@
             transform: translateY(0);
         }
         #question-number {
-            font-size: clamp(2rem, 4vw, 2.5rem); /* Responsive font size, ~40px max */
+            font-size: clamp(1.5rem, 3vw, 1.875rem); /* Reduced font size */
             font-weight: bold;
             margin-bottom: 10px;
             text-align: center;
         }
         #question-text {
-            font-size: clamp(1.75rem, 3vw, 2.1875rem); /* Responsive font size, ~35px max */
+            font-size: clamp(2rem, 3.5vw, 2.5rem); /* Increased font size */
+            font-family: monospace; /* Monospace font */
             text-align: center;
         }
         #time-counter {
-            font-size: clamp(1.5rem, 3vw, 1.875rem); /* Responsive font size, ~30px max */
+            font-size: clamp(1.5rem, 3vw, 1.875rem);
             color: #721c24;
             font-weight: bold;
-            margin-top: 20px; /* Outside question box */
+            margin-top: 20px;
         }
         #options-area {
-            width: clamp(600px, 70vw, 700px); /* Widened to prevent overlap */
-            height: clamp(300px, 40vh, 400px); /* Responsive height */
+            width: clamp(600px, 70vw, 700px);
+            height: clamp(300px, 40vh, 400px);
             position: relative;
             margin: 20px auto;
         }
         .option-button {
             position: absolute;
-            width: clamp(140px, 20vw, 180px); /* Responsive width */
-            height: clamp(60px, 10vh, 80px); /* Responsive height */
-            padding: 5px; /* Reduced padding */
-            border: 4px solid transparent; /* Original thickness */
+            width: clamp(140px, 20vw, 180px);
+            height: clamp(60px, 10vh, 80px);
+            padding: 5px;
+            border: 4px solid transparent;
             border-radius: 8px;
             cursor: default;
-            font-size: clamp(1.5rem, 2.5vw, 1.875rem); /* Responsive font size, ~30px max */
+            font-size: clamp(1.5rem, 2.5vw, 1.875rem);
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s ease, border 0.3s ease;
         }
-        #option-A { top: 0; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #ff6f61, #ff9f84); } /* Coral gradient */
-        #option-B { top: 50%; left: 0; transform: translateY(-50%); background: linear-gradient(45deg, #40c4ff, #80deea); } /* Sky blue gradient */
-        #option-C { top: 50%; right: 0; transform: translateY(-50%); background: linear-gradient(45deg, #ffd740, #ffeb3b); } /* Yellow gradient */
-        #option-D { bottom: 0; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #66bb6a, #81c784); } /* Green gradient */
+        #option-A { top: 0; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #ff6f61, #ff9f84); }
+        #option-B { top: 50%; left: 0; transform: translateY(-50%); background: linear-gradient(45deg, #40c4ff, #80deea); }
+        #option-C { top: 50%; right: 0; transform: translateY(-50%); background: linear-gradient(45deg, #ffd740, #ffeb3b); }
+        #option-D { bottom: 0; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, #66bb6a, #81c784); }
         .option-button.detected {
-            animation: flashDetected 0.3s infinite alternate; /* Faster flashing */
+            animation: flashDetected 0.3s infinite alternate;
         }
         @keyframes flashDetected {
-            0% { background-color: #ffffff; border: 4px solid #800080; color: #333; } /* White background, purple border */
+            0% { background-color: #ffffff; border: 4px solid #800080; color: #333; }
             100% { background-color: transparent; border: 4px solid transparent; color: #333; }
         }
         .option-button.correct {
@@ -180,16 +185,16 @@
         }
         #feedback-message {
             margin-top: 15px;
-            font-size: clamp(2.5rem, 5vw, 3.75rem); /* Bigger font, ~60px max */
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
             font-weight: bold;
             min-height: 40px;
-            text-align: center; /* Centered */
+            text-align: center;
         }
         #feedback-message.correct { color: green; }
         #feedback-message.wrong { color: red; }
         #score-container {
             margin-top: 20px;
-            font-size: clamp(1.75rem, 3vw, 2.1875rem); /* Responsive font size, ~35px max */
+            font-size: clamp(1.75rem, 3vw, 2.1875rem);
             font-weight: bold;
             text-align: center;
             display: flex;
@@ -205,7 +210,7 @@
         }
         #restart-button {
             padding: 12px 24px;
-            font-size: clamp(1.25rem, 3vw, 1.5625rem); /* Responsive font size, ~25px max */
+            font-size: clamp(1.25rem, 3vw, 1.5625rem);
             background: linear-gradient(45deg, #007bff, #00d4ff);
             color: white;
             border: none;
@@ -220,7 +225,7 @@
             box-shadow: 0 6px 8px rgba(0,0,0,0.2);
         }
         #dashboard-container h2 {
-            font-size: clamp(1.5rem, 3vw, 1.875rem); /* Responsive font size, ~30px max */
+            font-size: clamp(1.5rem, 3vw, 1.875rem);
             margin-bottom: 15px;
             text-align: center;
         }
@@ -232,28 +237,28 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
-            font-size: clamp(0.875rem, 2vw, 1.125rem); /* Smaller font size, ~18px max */
+            font-size: clamp(0.875rem, 2vw, 1.125rem);
         }
         #dashboard-table th {
             background-color: #f9f9f9;
         }
         #total-score {
             margin-top: 15px;
-            font-size: clamp(1rem, 2.5vw, 1.25rem); /* Smaller font size, ~20px max */
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
             font-weight: bold;
             text-align: center;
         }
         #confidence-container {
             width: 100%;
-            font-size: clamp(1rem, 2vw, 1.25rem); /* Responsive font size, ~20px max */
+            font-size: clamp(1rem, 2vw, 1.25rem);
             display: flex;
             justify-content: space-around;
             position: absolute;
             bottom: 20px;
             left: 0;
             margin: 0;
-            background-color: #d3d3d3; /* Gray background */
-            color: #808080; /* Gray text */
+            background-color: #d3d3d3;
+            color: #808080;
             padding: 10px 0;
             border-radius: 8px;
         }
@@ -275,7 +280,6 @@
         .blackout.fade-out {
             opacity: 0;
         }
-        /* Media query for smaller screens like iPad */
         @media (max-width: 1024px) {
             #main-container {
                 flex-direction: column;
@@ -284,6 +288,13 @@
                 flex: 1;
                 padding: 10px;
             }
+            #webcam-container {
+                position: static;
+                margin: 10px auto;
+            }
+            #question-box {
+                margin-top: 20px; /* Reset for smaller screens */
+            }
             #right-pane {
                 flex: none;
                 width: 100%;
@@ -291,9 +302,6 @@
                 border-top: 1px solid #ddd;
                 box-shadow: none;
                 padding: 10px;
-            }
-            #webcam-confidence-container {
-                justify-content: center;
             }
             #confidence-container {
                 position: static;
@@ -305,6 +313,9 @@
 <body>
     <div id="main-container">
         <div id="quiz-container">
+            <div id="webcam-container">
+                <canvas id="canvas"></canvas>
+            </div>
             <div id="home-container">
                 <h1>Welcome to the Camera Quiz Game</h1>
                 <button id="start-button" onclick="startGame()">Start Game</button>
@@ -332,9 +343,6 @@
             </div>
         </div>
         <div id="right-pane">
-            <div id="webcam-container">
-                <canvas id="canvas"></canvas>
-            </div>
             <div id="dashboard-container">
                 <h2>Score Dashboard</h2>
                 <table id="dashboard-table">
@@ -365,8 +373,8 @@
         let questionStartTime, timerInterval;
         const scores = Array(questionsPerGame).fill(null);
         let lastDetectedPose = null;
-        let loopInterval; // For controlling the loop
-        const DETECTION_INTERVAL = 200; // Increased to 200ms for 5 FPS
+        let loopInterval;
+        const DETECTION_INTERVAL = 200;
 
         // DOM Elements
         const homeContainerElement = document.getElementById('home-container');
@@ -402,7 +410,7 @@
                 model = await tmPose.load(modelURL, metadataURL);
                 maxPredictions = model.getTotalClasses();
 
-                const size = 150; // Reduced to 150x150 for lower rendering load
+                const size = 150;
                 const flip = true;
                 webcam = new tmPose.Webcam(size, size, flip);
                 await webcam.setup();
@@ -416,7 +424,6 @@
                     labelContainer.appendChild(document.createElement('div'));
                 }
 
-                // Start the throttled loop
                 loopInterval = setInterval(loop, DETECTION_INTERVAL);
                 return true;
             } catch (e) {
@@ -475,8 +482,6 @@
                 if (pose) {
                     const minPartConfidence = 0.5;
                     tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-                    // Optional: Disable skeleton drawing to reduce load
-                    // tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
                 }
             }
         }
@@ -527,7 +532,7 @@
 
             shuffleArray(allQuestions);
             selectedQuestions = allQuestions.slice(0, Math.min(allQuestions.length, questionsPerGame));
-            if (selectedQuestions.length > 0) {
+            if heg.selectedQuestions.length > 0) {
                 displayQuestion();
             } else {
                 questionTextElement.textContent = "Not enough questions.";
@@ -659,7 +664,7 @@
 
         function endGame() {
             clearInterval(timerInterval);
-            clearInterval(loopInterval); // Stop the pose detection loop
+            clearInterval(loopInterval);
             questionBoxElement.classList.add('hidden');
             optionsAreaElement.classList.add('hidden');
             feedbackMessageElement.textContent = '';
