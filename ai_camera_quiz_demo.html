@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camera Quiz Game</title>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script>
+        // Enable WebGL backend for better performance (uncomment if supported)
+        // tf.setBackend('webgl');
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
     <style>
@@ -74,8 +78,8 @@
             min-width: 250px; /* Ensure right pane doesn't collapse too much */
         }
         #webcam-container {
-            width: clamp(200px, 20vw, 300px); /* Adjusted for pose detection */
-            height: clamp(200px, 20vw, 300px);
+            width: clamp(150px, 15vw, 225px); /* Reduced size for pose detection */
+            height: clamp(150px, 15vw, 225px);
             border: 2px solid #333;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -310,7 +314,7 @@
                     <div id="question-number"></div>
                     <div id="question-text">Loading question...</div>
                 </div>
-                <div id="time-counter">Time: 5</div>
+                <div id="time-counter">Time: 8</div>
                 <div id="options-area"></div>
                 <div id="feedback-message"></div>
                 <div id="score-container" class="hidden">
@@ -362,7 +366,7 @@
         const scores = Array(questionsPerGame).fill(null);
         let lastDetectedPose = null;
         let loopInterval; // For controlling the loop
-        const DETECTION_INTERVAL = 100; // 100ms interval for 10 FPS
+        const DETECTION_INTERVAL = 200; // Increased to 200ms for 5 FPS
 
         // DOM Elements
         const homeContainerElement = document.getElementById('home-container');
@@ -398,7 +402,7 @@
                 model = await tmPose.load(modelURL, metadataURL);
                 maxPredictions = model.getTotalClasses();
 
-                const size = 200;
+                const size = 150; // Reduced to 150x150 for lower rendering load
                 const flip = true;
                 webcam = new tmPose.Webcam(size, size, flip);
                 await webcam.setup();
@@ -471,7 +475,8 @@
                 if (pose) {
                     const minPartConfidence = 0.5;
                     tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-                    tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
+                    // Optional: Disable skeleton drawing to reduce load
+                    // tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
                 }
             }
         }
