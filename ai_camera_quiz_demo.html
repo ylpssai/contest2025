@@ -54,7 +54,7 @@
         }
         #webcam-container {
             width: clamp(120px, 12vw, 150px);
-            height: clamp(120px, 12vw, 150px);
+            height: clamp(120px, 12vh, 150px);
             border: 2px solid #333;
             border-radius: 8px;
             margin-top: 10px;
@@ -145,7 +145,7 @@
             border: 4px solid red !important;
         }
         .option-button.highlighted-correct {
-            border: 4px solid #d4a017 !important;
+            border: 6px solid linear-gradient(45deg, #ffeb3b, #ff9800) !important; /* Thick colorful border */
         }
         #feedback-message {
             margin-top: 12px;
@@ -299,18 +299,18 @@
         }
         .confidence-levels {
             display: flex;
-            flex-direction: row; /* Horizontal layout */
-            flex-wrap: wrap; /* Allow wrapping if needed */
-            gap: 10px; /* Space between items */
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 10px;
             align-items: center;
-            justify-content: center; /* Center items horizontally */
+            justify-content: center;
         }
         .confidence-levels div {
-            margin: 0; /* Remove vertical margin */
+            margin: 0;
         }
         .confidence-levels .highest {
-            font-weight: bold; /* Bold for highest confidence */
+            font-weight: bold;
         }
         .hidden { display: none !important; }
         .blackout {
@@ -535,7 +535,7 @@
                 await predict(prediction);
             }
             if (!webcamContainer.classList.contains('hidden')) {
-                drawPose(pose); // Draw pose keypoints and skeleton
+                drawPose(pose);
             }
         }
 
@@ -543,7 +543,6 @@
             if (answerConfirmed || currentQuestionIndex >= selectedQuestions.length) return;
 
             let highest = -1, result;
-            // Reset highest confidence styling
             Object.values(confidenceElements).forEach(el => el.classList.remove('highest'));
 
             for (let i = 0; i < maxPredictions; i++) {
@@ -560,7 +559,6 @@
                 }
             }
 
-            // Highlight the highest confidence
             if (result && confidenceElements[result.className]) {
                 confidenceElements[result.className].classList.add('highest');
             }
@@ -588,7 +586,7 @@
                 if (pose) {
                     const minPartConfidence = 0.5;
                     tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-                    tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx); // Draw skeleton for better visibility
+                    tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
                 }
             }
         }
@@ -700,6 +698,10 @@
             optionsAreaElement.innerHTML = '';
             optionsAreaElement.style.display = 'block';
 
+            // Clear question box before blackout transition
+            questionNumberElement.textContent = '';
+            questionTextElement.textContent = '';
+
             if (currentQuestionIndex >= selectedQuestions.length) {
                 endGame();
                 return;
@@ -767,7 +769,7 @@
                 feedbackMessageElement.textContent = 'Wrong!';
                 feedbackMessageElement.className = 'wrong';
                 if (selectedButton) selectedButton.classList.add('wrong');
-                if (correctButton) correctButton.classList.add('highlighted-correct');
+                if (correctButton) correctButton.classList.add('highlighted-correct'); // Highlight correct answer with thick border
             }
 
             updateDashboard();
