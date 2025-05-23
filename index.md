@@ -1,5 +1,5 @@
 ---
-title: AI Innovation Contest 2025
+title: YLPSS - AI Innovation Contest 2025 - AI Camera Quiz
 ---
 # YLPSS: AI Camera Quiz
 
