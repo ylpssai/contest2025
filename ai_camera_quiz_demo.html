@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script>
         // Enable WebGL backend for better performance (uncomment if supported)
-        // tf.setBackend('webgl');
+        tf.setBackend('webgl');
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
@@ -299,12 +299,18 @@
         }
         .confidence-levels {
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* Horizontal layout */
+            flex-wrap: wrap; /* Allow wrapping if needed */
+            gap: 10px; /* Space between items */
             margin-top: 10px;
             align-items: center;
+            justify-content: center; /* Center items horizontally */
         }
         .confidence-levels div {
-            margin: 2px 0;
+            margin: 0; /* Remove vertical margin */
+        }
+        .confidence-levels .highest {
+            font-weight: bold; /* Bold for highest confidence */
         }
         .hidden { display: none !important; }
         .blackout {
@@ -523,19 +529,23 @@
         async function loop() {
             if (!webcam) return;
             webcam.update();
+            const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
             if (classificationStarted) {
-                const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
                 const prediction = await model.predict(posenetOutput);
                 await predict(prediction);
-                drawPose(pose); // Draw pose keypoints
             }
-            if (!webcamContainer.classList.contains('hidden')) drawPose();
+            if (!webcamContainer.classList.contains('hidden')) {
+                drawPose(pose); // Draw pose keypoints and skeleton
+            }
         }
 
         async function predict(predictions) {
             if (answerConfirmed || currentQuestionIndex >= selectedQuestions.length) return;
 
             let highest = -1, result;
+            // Reset highest confidence styling
+            Object.values(confidenceElements).forEach(el => el.classList.remove('highest'));
+
             for (let i = 0; i < maxPredictions; i++) {
                 const prob = predictions[i].probability;
                 const probPercent = (prob * 100).toFixed(2);
@@ -548,6 +558,11 @@
                     result = predictions[i];
                     highest = prob;
                 }
+            }
+
+            // Highlight the highest confidence
+            if (result && confidenceElements[result.className]) {
+                confidenceElements[result.className].classList.add('highest');
             }
 
             if (result.probability >= 0.8) {
@@ -617,7 +632,6 @@
             feedbackMessageElement.className = '';
             scoreContainerElement.classList.add('hidden');
             questionTextElement.classList.remove('hidden');
-            // Remove initial hidden class to allow options to display
             optionsAreaElement.classList.remove('hidden');
             scores.fill(null);
             updateDashboard();
@@ -684,7 +698,7 @@
             feedbackMessageElement.textContent = '';
             feedbackMessageElement.className = '';
             optionsAreaElement.innerHTML = '';
-            optionsAreaElement.style.display = 'block'; // Ensure options are visible
+            optionsAreaElement.style.display = 'block';
 
             if (currentQuestionIndex >= selectedQuestions.length) {
                 endGame();
