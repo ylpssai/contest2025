@@ -31,9 +31,9 @@
             flex: 3;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Align items to the left */
+            align-items: flex-start;
             justify-content: flex-start;
-            padding: 20px;
+            padding: 15px; /* Reduced padding for notebook screens */
             overflow-y: auto;
             position: relative;
         }
@@ -41,11 +41,11 @@
             width: 100%;
         }
         #webcam-container {
-            width: clamp(150px, 15vw, 225px);
-            height: clamp(150px, 15vw, 225px);
+            width: clamp(150px, 15vw, 200px);
+            height: clamp(150px, 15vw, 200px);
             border: 2px solid #333;
             border-radius: 8px;
-            margin-right: 20px; /* Space between webcam and question box */
+            margin-right: 20px;
         }
         #canvas {
             width: 100%;
@@ -55,15 +55,15 @@
             background-color: #fff;
             border: 2px solid #333;
             border-radius: 8px;
-            padding: 20px 10px 5px;
-            margin-bottom: 20px;
-            width: clamp(600px, 80vw, 800px);
-            height: clamp(150px, 20vh, 180px);
+            padding: 15px 10px 5px;
+            margin-bottom: 15px;
+            width: clamp(500px, 70vw, 700px); /* Adjusted for notebook screens */
+            height: clamp(120px, 18vh, 160px);
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5em;
+            gap: 1em;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 1s ease, transform 1s ease;
@@ -73,37 +73,37 @@
             transform: translateY(0);
         }
         #question-number {
-            font-size: clamp(1.5rem, 3vw, 1.875rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
         }
         #question-text {
-            font-size: clamp(2.25rem, 4vw, 2.8125rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             font-family: monospace;
             text-align: center;
         }
         #time-counter {
-            font-size: clamp(1.5rem, 3vw, 1.875rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             color: #721c24;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         #options-area {
-            width: clamp(600px, 70vw, 700px);
-            height: clamp(300px, 40vh, 400px);
+            width: clamp(500px, 65vw, 650px); /* Adjusted for notebook screens */
+            height: clamp(250px, 35vh, 350px);
             position: relative;
-            margin: 20px auto;
+            margin: 15px auto;
         }
         .option-button {
             position: absolute;
-            width: clamp(140px, 20vw, 180px);
-            height: clamp(60px, 10vh, 80px);
+            width: clamp(120px, 18vw, 160px);
+            height: clamp(50px, 9vh, 70px);
             padding: 5px;
             border: 4px solid transparent;
             border-radius: 8px;
             cursor: pointer;
-            font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
             text-align: center;
             display: flex;
             align-items: center;
@@ -135,17 +135,17 @@
             border: 4px solid #d4a017 !important;
         }
         #feedback-message {
-            margin-top: 15px;
-            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            margin-top: 12px;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: bold;
-            min-height: 40px;
+            min-height: 35px;
             text-align: center;
         }
         #feedback-message.correct { color: green; }
         #feedback-message.wrong { color: red; }
         #score-container {
-            margin-top: 20px;
-            font-size: clamp(1.75rem, 3vw, 2.1875rem);
+            margin-top: 15px;
+            font-size: clamp(1.5rem, 2.5vw, 1.75rem);
             font-weight: bold;
             text-align: center;
             display: flex;
@@ -159,9 +159,9 @@
             opacity: 1;
             transform: scale(1);
         }
-        #restart-button {
+        #start-button, #restart-button {
             padding: 12px 24px;
-            font-size: clamp(1.25rem, 3vw, 1.5625rem);
+            font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
             background: linear-gradient(45deg, #007bff, #00d4ff);
             color: white;
             border: none;
@@ -169,19 +169,32 @@
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 10px;
+            margin-top: 15px;
         }
-        #restart-button:hover {
+        #start-button:hover, #restart-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.2);
         }
+        #right-pane {
+            flex: 1;
+            background-color: #f0fff0; /* Light green harmonic with #fffaf0 */
+            padding: 15px;
+            border-left: 1px solid #ddd;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            min-width: 250px;
+        }
         #dashboard-container {
             flex: 1;
-            width: 100%;
+            width: 90%; /* Add spacing on the right by not using full width */
+            margin-right: 10px; /* Additional right spacing */
         }
         #dashboard-container h2 {
-            font-size: clamp(1.5rem, 3vw, 1.875rem);
-            margin-bottom: 15px;
+            font-size: clamp(1.2rem, 2vw, 1.5rem); /* Smaller text */
+            margin-bottom: 12px;
             text-align: center;
         }
         #dashboard-table {
@@ -190,44 +203,84 @@
         }
         #dashboard-table th, #dashboard-table td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 6px;
             text-align: center;
-            font-size: clamp(0.875rem, 2vw, 1.125rem);
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
         }
         #dashboard-table th {
             background-color: #f9f9f9;
         }
         #total-score {
-            margin-top: 15px;
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-top: 12px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             font-weight: bold;
             text-align: center;
         }
         #confidence-container {
             width: 100%;
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
             display: flex;
             justify-content: space-around;
             position: absolute;
-            bottom: 20px;
+            bottom: 15px;
             left: 0;
             margin: 0;
             background-color: #d3d3d3;
             color: #808080;
-            padding: 10px 0;
-            border-radius: 8px;
+            padding: 8px 0;
+            border-radius: 6px;
         }
         #confidence-container div {
-            margin: 0 5px;
+            margin: 0 4px;
         }
         .toggle-container {
             margin-top: 10px;
             display: flex;
             align-items: center;
         }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
         .toggle-container label {
-            margin-left: 5px;
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-left: 8px;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
         }
         .hidden { display: none !important; }
         .blackout {
@@ -255,11 +308,11 @@
             align-items: center;
             justify-content: center;
             z-index: 2000;
-            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
             font-weight: bold;
             color: #333;
         }
-        @media (max-width: 1024px) {
+        @media (max-width: 1366px) { /* Typical notebook resolution */
             #main-container {
                 flex-direction: column;
             }
@@ -275,16 +328,24 @@
                 box-shadow: none;
                 padding: 10px;
             }
-            #confidence-container {
-                position: static;
-                margin-top: 20px;
-            }
             #webcam-container {
-                margin: 0 auto 20px;
+                margin: 0 auto 15px;
+                order: -1; /* Move webcam above question box on small screens */
             }
             #question-box {
                 margin-left: 0;
                 width: 100%;
+                height: auto;
+                min-height: 120px;
+            }
+            #options-area {
+                width: 100%;
+                height: auto;
+                min-height: 250px;
+            }
+            #confidence-container {
+                position: static;
+                margin-top: 15px;
             }
         }
     </style>
@@ -306,7 +367,10 @@
                             <canvas id="canvas"></canvas>
                         </div>
                         <div class="toggle-container">
-                            <input type="checkbox" id="toggle-webcam" checked>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggle-webcam" checked>
+                                <span class="slider"></span>
+                            </label>
                             <label for="toggle-webcam">Show Camera</label>
                         </div>
                     </div>
@@ -504,6 +568,8 @@
         }
 
         async function startGame() {
+            // Reinitialize webcam for game context
+            if (!(await initWebcam())) return;
             homeContainerElement.classList.add('hidden');
             gameContainerElement.classList.remove('hidden');
             document.getElementById('right-pane').classList.remove('hidden');
@@ -671,9 +737,9 @@
             timeCounterElement.classList.add('hidden');
             finalScoreLabelElement.textContent = 'Your final score is:';
             finalScoreValueElement.textContent = totalScore;
-            finalScoreLabelElement.style.fontSize = 'clamp(1.25rem, 3vw, 1.875rem)';
-            finalScoreValueElement.style.fontSize = 'clamp(3.5rem, 7vw, 5rem)';
-            finalScoreValueElement.style.marginTop = '20px';
+            finalScoreLabelElement.style.fontSize = 'clamp(1.25rem, 2.5vw, 1.875rem)';
+            finalScoreValueElement.style.fontSize = 'clamp(3rem, 6vw, 4.5rem)';
+            finalScoreValueElement.style.marginTop = '15px';
             scoreContainerElement.classList.remove('hidden');
             setTimeout(() => {
                 scoreContainerElement.classList.add('visible');
