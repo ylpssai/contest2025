@@ -1,5 +1,7 @@
-# AI Innovation Contest 2025
-## YLPSS: AI Camera Quiz
+---
+title: AI Innovation Contest 2025
+---
+# YLPSS: AI Camera Quiz
 
 - [AI Camera (Pose) Demo](ai_camera_pose_demo.html)
 - [Demo Quiz](demo_quiz.html)
