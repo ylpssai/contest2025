@@ -633,7 +633,7 @@
                 timeCounterElement.textContent = 'Time: 5';
                 let waitTime = 5;
                 clearInterval(timerInterval);
-                timerInterval = setInterval(() {
+                timerInterval = setInterval(() => {
                     waitTime--;
                     timeCounterElement.textContent = `Time: ${waitTime}`;
                     if (waitTime <= 0) {
