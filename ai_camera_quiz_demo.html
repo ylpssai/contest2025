@@ -735,7 +735,11 @@
                             let tmp = currentQuestion.options[x];
                             currentQuestion.options[x] = currentQuestion.options[y];
                             currentQuestion.options[y] = tmp;
-                            if (currentQuestion.correct_answer == x) currentQuestion.correct_answer = y;
+                            if (currentQuestion.correct_answer == x) {
+                                currentQuestion.correct_answer = y;
+                            } else if (currentQuestion.correct_answer == y) {
+                                currentQuestion.correct_answer = x;
+                            }
                         }
                         Object.entries(currentQuestion.options).forEach(([key, value]) => {
                             const button = document.createElement('div');
