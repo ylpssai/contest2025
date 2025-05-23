@@ -31,7 +31,7 @@
             flex: 3;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Center all content */
             justify-content: flex-start;
             padding: 15px;
             overflow-y: auto;
@@ -68,6 +68,7 @@
             border: 2px solid #333;
             border-radius: 8px;
             padding: 15px 10px 5px;
+            margin: 0 auto; /* Center horizontally */
             margin-bottom: 15px;
             width: clamp(500px, 70vw, 700px);
             height: clamp(120px, 18vh, 160px);
@@ -105,7 +106,7 @@
             width: clamp(500px, 65vw, 650px);
             height: clamp(250px, 35vh, 350px);
             position: relative;
-            margin: 15px auto;
+            margin: 15px auto; /* Center horizontally */
         }
         .option-button {
             position: absolute;
@@ -245,7 +246,7 @@
             color: #808080;
             padding: 8px 10px;
             border-radius: 6px;
-            margin-top: auto; /* Push to bottom of right pane */
+            margin-top: auto;
         }
         .toggle-container {
             display: flex;
@@ -522,26 +523,29 @@
         async function loop() {
             if (!webcam) return;
             webcam.update();
-            if (classificationStarted) await predict();
+            if (classificationStarted) {
+                const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+                const prediction = await model.predict(posenetOutput);
+                await predict(prediction);
+                drawPose(pose); // Draw pose keypoints
+            }
             if (!webcamContainer.classList.contains('hidden')) drawPose();
         }
 
-        async function predict() {
+        async function predict(predictions) {
             if (answerConfirmed || currentQuestionIndex >= selectedQuestions.length) return;
-            const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
-            const prediction = await model.predict(posenetOutput);
 
             let highest = -1, result;
             for (let i = 0; i < maxPredictions; i++) {
-                const prob = prediction[i].probability;
+                const prob = predictions[i].probability;
                 const probPercent = (prob * 100).toFixed(2);
-                const className = prediction[i].className;
+                const className = predictions[i].className;
                 labelContainer.childNodes[i].innerHTML = `${className}: ${probPercent}%`;
                 if (confidenceElements[className]) {
                     confidenceElements[className].textContent = `${className}: ${probPercent}%`;
                 }
                 if (prob > highest) {
-                    result = prediction[i];
+                    result = predictions[i];
                     highest = prob;
                 }
             }
@@ -569,6 +573,7 @@
                 if (pose) {
                     const minPartConfidence = 0.5;
                     tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
+                    tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx); // Draw skeleton for better visibility
                 }
             }
         }
@@ -612,7 +617,8 @@
             feedbackMessageElement.className = '';
             scoreContainerElement.classList.add('hidden');
             questionTextElement.classList.remove('hidden');
-            optionsAreaElement.classList.add('hidden');
+            // Remove initial hidden class to allow options to display
+            optionsAreaElement.classList.remove('hidden');
             scores.fill(null);
             updateDashboard();
 
@@ -627,7 +633,7 @@
                 timeCounterElement.textContent = 'Time: 5';
                 let waitTime = 5;
                 clearInterval(timerInterval);
-                timerInterval = setInterval(() => {
+                timerInterval = setInterval(() {
                     waitTime--;
                     timeCounterElement.textContent = `Time: ${waitTime}`;
                     if (waitTime <= 0) {
@@ -678,7 +684,7 @@
             feedbackMessageElement.textContent = '';
             feedbackMessageElement.className = '';
             optionsAreaElement.innerHTML = '';
-            optionsAreaElement.style.display = 'none';
+            optionsAreaElement.style.display = 'block'; // Ensure options are visible
 
             if (currentQuestionIndex >= selectedQuestions.length) {
                 endGame();
@@ -805,8 +811,8 @@
                 finalScoreValueElement.style.fontSize = '';
                 finalScoreValueElement.style.marginTop = '';
                 scoreContainerElement.classList.add('hidden');
-                questionBoxElement.classList.remove('hidden'); // Ensure question box is visible
-                questionBoxElement.classList.remove('visible'); // Reset visibility transition
+                questionBoxElement.classList.remove('hidden');
+                questionBoxElement.classList.remove('visible');
                 startGame();
             });
         }
