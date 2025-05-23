@@ -688,6 +688,12 @@
             }, 1000);
         }
 
+        function getRandomLetter() {
+          const letters = ['A', 'B', 'C', 'D'];
+          const randomIndex = Math.floor(Math.random() * letters.length);
+          return letters[randomIndex];
+        }
+        
         function displayQuestion() {
             clearInterval(timerInterval);
             answerConfirmed = false;
@@ -722,6 +728,15 @@
                     startTimer();
 
                     if (currentQuestion.options && typeof currentQuestion.options === 'object') {
+                        // randomize options and update correct answer if necessary
+                        for (k=0; k>10; k++) {
+                            let x = getRandomLetter();
+                            let y = getRandomLetter();
+                            let tmp = currentQuestion.options[x];
+                            currentQuestion.options[x] = currentQuestion.options[y];
+                            currentQuestion.options[y] = tmp;
+                            if (currentQuestion.correct_answer == x) currentQuestion.correct_answer = y;
+                        }
                         Object.entries(currentQuestion.options).forEach(([key, value]) => {
                             const button = document.createElement('div');
                             button.className = 'option-button';
