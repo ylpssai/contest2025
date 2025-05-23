@@ -31,71 +31,25 @@
             flex: 3;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start; /* Align items to the left */
             justify-content: flex-start;
             padding: 20px;
-            padding-top: 10px;
             overflow-y: auto;
             position: relative;
+        }
+        #game-container, #home-container {
+            width: 100%;
         }
         #webcam-container {
             width: clamp(150px, 15vw, 225px);
             height: clamp(150px, 15vw, 225px);
             border: 2px solid #333;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-right: 20px; /* Space between webcam and question box */
         }
         #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-        }
-        #home-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 8px;
-        }
-        #home-container h1 {
-            font-size: clamp(2.5rem, 6vw, 3.75rem);
-            margin-bottom: 20px;
-        }
-        #start-button {
-            padding: 12px 24px;
-            font-size: clamp(1.25rem, 3vw, 1.5625rem);
-            background: linear-gradient(45deg, #007bff, #00d4ff);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        #start-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.2);
-        }
-        #right-pane {
-            flex: 1;
-            background-color: #fff;
-            padding: 20px;
-            border-left: 1px solid #ddd;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
-            min-width: 250px;
-        }
-        #dashboard-container {
-            flex: 1;
-            width: 100%;
         }
         #question-box {
             background-color: #fff;
@@ -148,7 +102,7 @@
             padding: 5px;
             border: 4px solid transparent;
             border-radius: 8px;
-            cursor: pointer; /* Added cursor for clickability */
+            cursor: pointer;
             font-size: clamp(1.5rem, 2.5vw, 1.875rem);
             text-align: center;
             display: flex;
@@ -221,6 +175,10 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.2);
         }
+        #dashboard-container {
+            flex: 1;
+            width: 100%;
+        }
         #dashboard-container h2 {
             font-size: clamp(1.5rem, 3vw, 1.875rem);
             margin-bottom: 15px;
@@ -262,6 +220,15 @@
         #confidence-container div {
             margin: 0 5px;
         }
+        .toggle-container {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .toggle-container label {
+            margin-left: 5px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
         .hidden { display: none !important; }
         .blackout {
             position: fixed;
@@ -276,6 +243,21 @@
         }
         .blackout.fade-out {
             opacity: 0;
+        }
+        #waiting-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: bold;
+            color: #333;
         }
         @media (max-width: 1024px) {
             #main-container {
@@ -297,6 +279,13 @@
                 position: static;
                 margin-top: 20px;
             }
+            #webcam-container {
+                margin: 0 auto 20px;
+            }
+            #question-box {
+                margin-left: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -305,12 +294,26 @@
         <div id="quiz-container">
             <div id="home-container">
                 <h1>Welcome to the Camera Quiz Game</h1>
+                <div id="webcam-container">
+                    <canvas id="canvas"></canvas>
+                </div>
                 <button id="start-button" onclick="startGame()">Start Game</button>
             </div>
             <div id="game-container" class="hidden">
-                <div id="question-box">
-                    <div id="question-number"></div>
-                    <div id="question-text">Loading question...</div>
+                <div style="display: flex; align-items: flex-start;">
+                    <div>
+                        <div id="webcam-container">
+                            <canvas id="canvas"></canvas>
+                        </div>
+                        <div class="toggle-container">
+                            <input type="checkbox" id="toggle-webcam" checked>
+                            <label for="toggle-webcam">Show Camera</label>
+                        </div>
+                    </div>
+                    <div id="question-box">
+                        <div id="question-number"></div>
+                        <div id="question-text">Loading question...</div>
+                    </div>
                 </div>
                 <div id="time-counter">Time: 8</div>
                 <div id="options-area"></div>
@@ -343,12 +346,10 @@
                 </table>
                 <div id="total-score">Total: 0</div>
             </div>
-            <div id="webcam-container" class="hidden">
-                <canvas id="canvas"></canvas>
-            </div>
         </div>
     </div>
     <div id="blackout" class="blackout hidden"></div>
+    <div id="waiting-overlay" class="hidden">Please Wait...</div>
     <div id="label-container" style="display: none;"></div>
 
     <script>
@@ -390,6 +391,8 @@
         const blackoutElement = document.getElementById('blackout');
         const webcamContainer = document.getElementById('webcam-container');
         const canvas = document.getElementById('canvas');
+        const toggleWebcam = document.getElementById('toggle-webcam');
+        const waitingOverlay = document.getElementById('waiting-overlay');
 
         // Webcam and Pose Initialization
         async function initWebcam() {
@@ -425,6 +428,7 @@
         async function loop() {
             webcam.update();
             if (classificationStarted) await predict();
+            if (!webcamContainer.classList.contains('hidden')) drawPose();
         }
 
         async function predict() {
@@ -462,8 +466,6 @@
                     lastDetectedPose = null;
                 }
             }
-
-            drawPose(pose);
         }
 
         function drawPose(pose) {
@@ -488,6 +490,7 @@
                     return;
                 }
                 homeContainerElement.classList.remove('hidden');
+                await initWebcam(); // Activate camera on page load
             } catch (error) {
                 questionTextElement.textContent = `Error: ${error.message}.`;
             }
@@ -501,10 +504,10 @@
         }
 
         async function startGame() {
-            if (!(await initWebcam())) return;
             homeContainerElement.classList.add('hidden');
             gameContainerElement.classList.remove('hidden');
-            questionBoxElement.classList.remove('hidden');
+            document.getElementById('right-pane').classList.remove('hidden');
+
             totalScore = 0;
             currentQuestionIndex = 0;
             selectedQuestions = [];
@@ -519,13 +522,10 @@
             updateDashboard();
 
             Object.values(confidenceElements).forEach(el => el.textContent = `${el.id.replace('confidence-', '')}: 0.00%`);
-            webcamContainer.classList.remove('hidden'); // Show webcam after game starts
 
             shuffleArray(allQuestions);
             selectedQuestions = allQuestions.slice(0, Math.min(allQuestions.length, questionsPerGame));
             if (selectedQuestions.length > 0) {
-                questionTextElement.textContent = "Waiting...";
-                await new Promise(resolve => setTimeout(resolve, 3000)); // Wait 3 seconds
                 displayQuestion();
             } else {
                 questionTextElement.textContent = "Not enough questions.";
@@ -689,6 +689,7 @@
         function restartGame() {
             webcamContainer.innerHTML = '<canvas id="canvas"></canvas>';
             canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
             timeCounterElement.classList.remove('hidden');
             finalScoreLabelElement.textContent = '';
             finalScoreValueElement.textContent = '';
@@ -699,8 +700,13 @@
             scoreContainerElement.classList.add('hidden');
         }
 
-        // Start by fetching questions
-        fetchQuestions();
+        // Toggle webcam visibility
+        toggleWebcam.addEventListener('change', () => {
+            webcamContainer.classList.toggle('hidden', !toggleWebcam.checked);
+        });
+
+        // Start by fetching questions and initializing webcam
+        window.onload = fetchQuestions;
     </script>
 </body>
 </html>
